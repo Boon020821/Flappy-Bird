@@ -10,13 +10,12 @@ public class PipeSpawner : MonoBehaviour
 
     private float _timer;
 
-    private void Start()
-    {
-        SpawnPipe();
-    }
-
     private void Update()
     {
+        // 只有游戏开始后才生成管道
+        if (!GameManager.instance._isGameStarted)
+            return;
+
         if (_timer > _maxTime)
         {
             SpawnPipe();
